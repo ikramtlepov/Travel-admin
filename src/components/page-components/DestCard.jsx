@@ -1,19 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setModalType,  toggleModalAlert } from '../../store/slices/pageActionSlice'; 
+import { setDeleteItemId, setModalType, toggleModalAlert } from '../../store/slices/pageActionSlice';
 const DestCard = ({ item, className }) => {
     const dispatch = useDispatch();
 
     function handleModalDelete(id) {
-        dispatch(setSelectItem(id));  
+        dispatch(setDeleteItemId(id));
         dispatch(setModalType("delete"));
-        dispatch(toggleModalAlert());  
+        dispatch(toggleModalAlert());
     }
 
     function handleModalEdit(id) {
-        dispatch(setSelectItem(id));  
+        dispatch(setDeleteItemId(id));
         dispatch(setModalType("update"));
-        dispatch(toggleModalAlert());  
+        dispatch(toggleModalAlert());
     }
 
     return (
@@ -22,8 +22,7 @@ const DestCard = ({ item, className }) => {
                 <img
                     className="h-[250px] w-full object-cover rounded-xl"
                     src={item.image}
-                    alt={item.name}
-                />
+                    alt={item.name} />
             </div>
 
             <div className="mt-4 text-white ">
@@ -33,15 +32,13 @@ const DestCard = ({ item, className }) => {
 
             <div className="mt-4 flex gap-2">
                 <button
-                    onClick={() => handleModalEdit(item.id)}  
-                    className="px-6 py-3 text-white font-semibold bg-blue-500 rounded-lg"
-                >
+                    onClick={() => handleModalEdit(item.id)}
+                    className="px-6 py-3 text-white font-semibold bg-blue-500 rounded-lg">
                     Edit
                 </button>
                 <button
-                    onClick={() => handleModalDelete(item.id)}  
-                    className="px-6 py-3 text-white font-semibold bg-red-500 rounded-lg"
-                >
+                    onClick={() => handleModalDelete(item.id)}
+                    className="px-6 py-3 text-white font-semibold bg-red-500 rounded-lg">
                     Delete
                 </button>
             </div>

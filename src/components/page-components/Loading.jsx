@@ -1,6 +1,4 @@
-import { ImSpinner3 } from "react-icons/im"; 
 import React from 'react'
-import { CgSpinner } from 'react-icons/cg'
 
 const Loading = () => {
   return (

@@ -9,7 +9,8 @@ export const getAllDestData = (url) => {
         dispatch(fetchingDestData());
         try {
             const res = await axios.get(url);
-            dispatch(fetchedDestData(res.data));
+            await dispatch(fetchedDestData(res.data));
+            console.log(res.data)
         } catch (err) {
             dispatch(fetchedDestDataErr(err.message));
         }
@@ -102,9 +103,10 @@ export const updateTourData = (url,data, resetForm,setSubmit,id, ) => {
 export const deleteDestData = (url, id) => {
     return async (dispatch) => {
         try {
-            const res = await axios.delete(`${url}/${id}`);
-            await dispatch(getAllDestData(url+"/destinations"));  
-            await dispatch(getAllTourData(url+"/offers"));  
+            const res = await axios.delete(`${url}/destinations/${id}`);
+            console.log(res)
+            await dispatch(getAllDestData(`${url}/destinations`));  
+            await dispatch(getAllTourData(`${url}/offers`));  
             await dispatch(toggleModalAlert());  
         } catch (err) {
             console.log(err)
@@ -117,7 +119,7 @@ export const deleteDestData = (url, id) => {
 export const deleteTourData = (url, id) => {
     return async (dispatch) => {
         try {
-            const res = await axios.delete(`${url}/${id}`);
+            const res = await axios.delete(`${url}/offers/${id}`);
             await dispatch(getAllTourData(url+"/offers"));  
             await dispatch(toggleModalAlert());  
         } catch (err) {

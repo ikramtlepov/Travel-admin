@@ -5,8 +5,8 @@ const initialState = {
   showLang: false,
   selectLang: "ENG",
   showModalAlert: false,
-  deleteItemId : undefined,
-  modalType: "" 
+  deleteItemId: undefined,
+  modalType: "",
 };
 
 const pageActionSlice = createSlice({
@@ -33,8 +33,8 @@ const pageActionSlice = createSlice({
     },
     setModalType: (state, action) => {
       state.modalType = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const {
@@ -43,7 +43,7 @@ export const {
   setSelectLang,
   toggleModalAlert,
   setDeleteItemId,
-  setModalType
+  setModalType,
 } = pageActionSlice.actions;
 
 export default pageActionSlice.reducer;

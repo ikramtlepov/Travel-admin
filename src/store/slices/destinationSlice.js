@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     destinations: [],
     isDestLoad: false,
-   isDestError : null
+    isDestError : null
    
 };
 

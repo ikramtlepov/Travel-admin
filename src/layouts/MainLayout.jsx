@@ -10,7 +10,7 @@ import { toggleSidebar } from '../store/slices/pageActionSlice'
 import { ToastContainer } from 'react-toastify';
 
 const MainLayout = () => {
- const baseUrl = "https:/travel-data-base.onrender.com"
+ const baseUrl = "https://travel-data-p3vn.onrender.com"
  const dispatch = useDispatch()
  const { showSidebar} = useSelector(state => state.pageActionSlice)
 
@@ -21,6 +21,11 @@ const MainLayout = () => {
     dispatch(getAllDestData(`${baseUrl}/destinations`))
     dispatch(getAllTourData(`${baseUrl}/offers`))
  },[])
+
+
+
+
+ 
     return (
     <div className='w-[100%] h-[100vh] p-[10px] flex justify-between gap-[10px] '>
         <div className={`max-w-[250px] z-50  duration-500 min-w-[250px] border-[1px] ${showSidebar? "left-[10px]" : "left-[-250px]"} shadow-md  rounded-md p-[10px] bg-white top-[10px] bottom-[10px] absolute sm:static`}> 
